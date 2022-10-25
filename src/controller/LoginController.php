@@ -1,4 +1,6 @@
 <?php 
+// require("/routes/Routes.php");
+
 class LoginController {
     function __construct() {
         session_start();
@@ -6,9 +8,11 @@ class LoginController {
 
     public function login($username, $password){
         // session_start();
+        include("../model/UserModel.php");
         $isLogged = false;
         if($username == "evidalj" && $password == "123456"){
-            $_SESSION["user"] = new UserModel("Erik Vidal Jimenez");
+            $user = new UserModel("Erik Vidal Jimenez");
+            $_SESSION["user"] = $user;
             $isLogged = true;
         }
         return $isLogged;
@@ -22,12 +26,14 @@ class LoginController {
         unset($_SESSION["user"]);
     }
 
-    public function index(){
-        if($this->validateSession()){
-            require('view/HomeView.php');
-        } else {
-            require('view/LoginView.php');
-        }
-    }
-    
+    // public function index(){
+    //     if($this->validateSession()){
+    //         $this->goRoute("home");
+    //         // require('view/HomeView.php');
+    //     } else {
+    //         $this->goRoute("login");
+    //         // require('view/LoginView.php');
+    //     }
+    // }
+
 }
