@@ -1,1 +1,2 @@
-
+install docker https://docs.docker.com/desktop/
+execute command docker-compose up -d
