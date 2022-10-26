@@ -1,5 +1,4 @@
 <?php
-// echo "Hola mundo desde docker y php >.<";
 require("./routes/Routes.php");
 require("./controller/LoginController.php");
 

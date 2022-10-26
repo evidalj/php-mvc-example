@@ -25,7 +25,7 @@
                             <label class="form-label" for="password">Password</label>
                         </div>
                         <div class="d-flex justify-content-end">
-                            <input class="btn btn-primary" type="submit" value="login" />
+                            <button type="submit" class="btn btn-primary">login</button>
                         </div>
                     </form>
                 </div>

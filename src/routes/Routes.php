@@ -9,6 +9,7 @@ class Routes {
     public function redirect($route) {
         $redirectTo = $this->routes[$route];
         header("Location: $redirectTo");
+        exit();
         // return require($this->routes[$route]);
     }
 }
