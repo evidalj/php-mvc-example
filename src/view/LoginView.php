@@ -35,4 +35,34 @@
 </body>
 <?php include("../lib/material-design-js.php"); ?>
 
+   <?php
+    <?php
+$channels = [
+	["abbreviation"=>"TELCEL","name"=>"TELCEL"],
+    ["abbreviation"=>"MOVISTAR","name"=>"MOVISTAR"],
+    ["abbreviation"=>"AT&T","name"=>"AT&T"],
+    ["abbreviation"=>"ALESTRA","name"=>"ALESTRA"],
+    ["abbreviation"=>"IZZI","name"=>"IZZI"],
+    ["abbreviation"=>"ALTAN","name"=>"ALTAN"],
+];
+$customerChannels=["TELCEL", "MOVISTAR", "AT&T"];
+
+$callbackFunction=function($data) use($customerChannels){
+	$index = array_search($data['name'], $customerChannels);
+	$isInArray = $index>=0;
+	//echo"----\n";
+	echo $isInArray;
+	echo"---- \n";
+	print_r($data);
+	return $index >=0 ? $data['channel'] = $customerChannels[$index] : $data;
+};
+
+
+
+$data=array_map($callbackFunction, $channels);
+echo "<pre>";
+print_r($data);
+echo "</pre>";
+    ?> 
+    
 </html>
